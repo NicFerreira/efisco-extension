@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #eceff4; color: #2a2c5a; margin: 0; padding: 15px; }
+    h3 { font-size: 15px; font-weight: 600; border-bottom: 2px solid #2a2c5a; padding-bottom: 5px; margin-top: 0; text-transform: uppercase; }
+    .config-container, .input-container { background: #ffffff; padding: 10px; border: 1px solid #d3d9e6; margin-bottom: 15px; border-radius: 4px;}
+    .config-container label { font-size: 12px; font-weight: bold; display: block; margin-bottom: 5px; }
+    .config-container input[type="text"] { width: 100%; padding: 6px; font-size: 13px; border: 1px solid #c0c6d8; box-sizing: border-box; border-radius: 3px;}
+    textarea { width: 100%; height: 60px; font-size: 12px; border: 1px solid #c0c6d8; padding: 5px; box-sizing: border-box; resize: vertical; border-radius: 3px;}
+    
+    .btn-group { display: flex; gap: 10px; margin-top: 8px; }
+    button { flex: 1; padding: 8px; font-size: 12px; font-weight: bold; border: none; cursor: pointer; transition: background 0.2s; border-radius: 3px;}
+    .carregar { background-color: #2a2c5a; color: white; }
+    .carregar:hover { background-color: #1c1d3c; }
+    .limpar { background-color: #e53935; color: white; }
+    .limpar:hover { background-color: #c62828; }
+    
+    .diaria-item { background: #ffffff; border: 1px solid #d3d9e6; padding: 12px; margin-bottom: 10px; border-left: 5px solid #689f38; border-radius: 4px; position: relative; }
+    .info { font-size: 12px; color: #444; line-height: 1.5; padding-right: 15px;}
+    .info strong { color: #2a2c5a; font-size: 13px; }
+    .badges { display: flex; gap: 5px; margin-top: 4px; margin-bottom: 4px; }
+    .badge { background: #eceff4; padding: 2px 6px; font-size: 10px; color: #333; border: 1px solid #d3d9e6; border-radius: 3px;}
+    
+    /* Novo Botão Excluir Individual */
+    .btn-excluir { position: absolute; top: 8px; right: 8px; background: none; border: none; padding: 2px; font-size: 12px; cursor: pointer; color: #b0bec5; width: auto; flex: none; box-shadow: none;}
+    .btn-excluir:hover { color: #d32f2f; transform: scale(1.1); background: none;}
+
+    /* Novos Botões Lado a Lado */
+    .botoes-acao { display: flex; flex-direction: row; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+    .btn-acao { background-color: #f1f3f8; color: #2a2c5a; border: 1px solid #c0c6d8; padding: 6px 4px; font-size: 10px; cursor: pointer; text-align: center; flex: 1; min-width: 28%;}
+    .btn-acao:hover { background-color: #e2e6f0; }
+    .btn-destaque { background-color: #2a2c5a; color: white; border: none; }
+    .btn-destaque:hover { background-color: #1c1d3c; }
+
+    /* Nova Caixa de DH Manual (Oculta por padrão) */
+    .dh-manual-container { display: flex; gap: 5px; margin-top: 8px; background-color: #fff3e0; padding: 8px; border: 1px solid #ffe0b2; border-radius: 3px; align-items: center;}
+    .dh-manual-container input { flex: 1; padding: 4px; font-size: 10px; border: 1px solid #ffcc80; border-radius: 2px; }
+    .btn-salvar-dh { background-color: #f57c00; color: white; border: none; padding: 4px 8px; font-size: 10px; cursor: pointer; flex: none; width: auto;}
+    .btn-salvar-dh:hover { background-color: #ef6c00; }
+  </style>
+</head>
+<body>
+  <h3>Importar Diárias</h3>
+  <div class="config-container">
+    <label for="numEmpenho">Nº do Empenho Padrão:</label>
+    <input type="text" id="numEmpenho" value="13">
+  </div>
+  <div class="input-container">
+    <textarea id="jsonInput" placeholder="Cole os dados copiados da planilha aqui..."></textarea>
+    <div class="btn-group">
+      <button id="btnCarregar" class="carregar">Carregar Dados</button>
+      <button id="btnLimpar" class="limpar">Limpar Tudo</button>
+    </div>
+  </div>
+  <div id="listaDiarias"></div>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
